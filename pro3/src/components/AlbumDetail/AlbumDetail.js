@@ -2,6 +2,7 @@
 // para utilizarlo luego lo importo en el padre src/components/AlbumDetail/AlbumDetail.js
 
 import React, { Component } from 'react';
+import './AlbumDetail.css';
 
 class AlbumDetail extends Component {
   constructor(props) {
@@ -9,11 +10,16 @@ class AlbumDetail extends Component {
     this.state = {
       album: null,
       genre: '',
+      //  inico el estado isFavorite en el constructor y actualizarlo en función 
+      // de si el álbum está en la lista de favoritos o no al cargar los datos del álbum.
       isFavorite: false, 
     };
   }
-
+//Agrego la palabra clave 'async' antes de la función,
+// con esto permito el uso de 'await' dentro de la funcion 
   async componentDidMount() {
+    //dentro esta la lógica para obtener la información del álbum desde la API de Deezer
+    // y actualizar el estado con esa información. 
     const albumId = this.props.match.params.id;
     const proxy = 'https://thingproxy.freeboard.io/fetch/';
     const albumUrl = `${proxy}https://api.deezer.com/album/${albumId}`;
@@ -72,23 +78,25 @@ class AlbumDetail extends Component {
         }
       
         return (
-          <div>
-            <img src={album.cover} alt={album.title} />
-            <h2>{album.title}</h2>
-            <h3>{album.artist.name}</h3>
-            <h4>{album.genre_id}</h4>
-            <p>{album.release_date}</p>
-            <ul>
-              {album.tracks.data.map((track) => (
-                <li key={track.id}>
-                  {track.title}
-                </li>
-              ))}
-            </ul>
-            <button onClick={this.toggleFavorite}>
-             {isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
-            </button>
+          <div className="album-container">
+          <img src={album.cover} alt={album.title} className="album-cover" />
+          <div className="album-info">
+            <h2 className="album-title">{album.title}</h2>
+            <h3 className="album-artist">{album.artist.name}</h3>
+            <h4 className="album-genre">{this.state.genre}</h4>
+            <p className="album-release-date">{album.release_date}</p>
           </div>
+          <ul className="track-list">
+            {album.tracks.data.map((track) => (
+              <li key={track.id} className="track-item">
+                {track.title}
+              </li>
+            ))}
+          </ul>
+          <button className="favorite-button" onClick={this.toggleFavorite}>
+            {isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+          </button>
+        </div>
         );
       }
       

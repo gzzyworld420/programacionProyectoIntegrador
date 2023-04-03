@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import AlbumDetail from '../AlbumDetail/AlbumDetail';
+import { Link } from 'react-router-dom';
+import './Favoritos.css';
 
 class Favoritos extends Component {
   constructor(props) {
@@ -8,42 +9,38 @@ class Favoritos extends Component {
       favoritos: [],
     };
   }
+  componentDidMount() {
+    const favoriteAlbums = localStorage.getItem('favoriteAlbums');
+    const parsedFavoriteAlbums = favoriteAlbums ? JSON.parse(favoriteAlbums) : {};
+    this.setState({ favoritos: parsedFavoriteAlbums });
+  }
 
-  handleAddToFavorites = (album) => {
-    this.setState((prevState) => ({
-      favoritos: [...prevState.favoritos, album],
-    }));
+  removeFromFavorites = (albumId) => {
+    const { favoritos } = this.state;
+    delete favoritos[albumId];
+    this.setState({ favoritos });
+
+    const favoriteAlbums = JSON.stringify(favoritos);
+    localStorage.setItem('favoriteAlbums', favoriteAlbums);
   };
 
   render() {
     const { favoritos } = this.state;
 
-    const albumList = [
-      { id: 1, title: 'Album 1', artist: 'Artista 1' },
-      { id: 2, title: 'Album 2', artist: 'Artista 2' },
-      { id: 3, title: 'Album 3', artist: 'Artista 3' },
-    ];
-
     return (
-      <div>
-        <h1>Favoritos</h1>
-        <div>
-          <h2>Lista de álbumes</h2>
-          {albumList.map((album) => (
-            <AlbumDetail
-              key={album.id}
-              title={album.title}
-              artist={album.artist}
-              handleAddToFavorites={() => this.handleAddToFavorites(album)}
-            />
-          ))}
-        </div>
-        <div>
-          <h2>Álbumes favoritos</h2>
-          {favoritos.map((album) => (
-            <div key={album.id}>
-              <h3>{album.title}</h3>
-              <p>{album.artist}</p>
+      <div className="favoritos-container">
+        <h1 className="favoritos-title">Favoritos</h1>
+        <div className="favorite-albums-container">
+          <h2 className="section-title">Álbumes favoritos</h2>
+          {Object.values(favoritos).map((album) => (
+            <div key={album.id} className="album-item">
+              <Link to={`/album/${album.id}`}>
+                <h3>{album.title}</h3>
+                <p>{album.artist.name}</p>
+              </Link>
+              <button onClick={() => this.removeFromFavorites(album.id)}>
+                Eliminar de favoritos
+              </button>
             </div>
           ))}
         </div>
