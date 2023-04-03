@@ -8,6 +8,8 @@ import AlbumDetail from './components/AlbumDetail/AlbumDetail';
 // aca abajo enlaces para favoritos 
 import Favoritos from './components/Favoritos/Favoritos';
 import NotFound from './components/NotFound/NotFound';
+// aca abajo punto 7 
+import HomePage from './components/HomePage/HomePage';
 
 import Home from './screens/Home/Home'
 
@@ -25,6 +27,7 @@ function App() {
               <Route path="/album/:id" component={AlbumDetail} />
               <Route path="/cancion/:id" component={SongDetail} />
               <Route path="/album/:id" component={AlbumDetail} />
+              <Route exact path="/" component={HomePage} />
               <Route component={NotFound} />
           </Switch>
       <Footer/>
