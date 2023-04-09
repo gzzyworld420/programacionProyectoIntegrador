@@ -11,6 +11,11 @@ import NotFound from './components/NotFound/NotFound';
 // aca abajo punto 7 
 import HomePage from './components/HomePage/HomePage';
 
+// // Punto 9
+import Spinner from "./components/Spinner/Spinner";
+import "./components/Spinner/Spinner.css";
+
+
 import Home from './screens/Home/Home'
 
 
@@ -29,6 +34,7 @@ function App() {
               <Route path="/album/:id" component={AlbumDetail} />
               <Route exact path="/" component={HomePage} />
               <Route component={NotFound} />
+              <Route component={Spinner} />
           </Switch>
       <Footer/>
     </>
@@ -36,3 +42,13 @@ function App() {
 }
 
 export default App;
+
+
+
+// export default function App() {
+//   return (
+//     <div className="pos-center">
+//       <Spinner />
+//     </div>
+//   );
+// }
