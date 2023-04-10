@@ -3,7 +3,7 @@
 // Cuando se hace clic en un álbum, se navega a la página de detalles del álbum correspondiente.
 
 import React, { Component } from 'react';
-import AlbumItem from '../AlbumItem/AlbumItem';
+import AlbumItem from '../../components/AlbumItem/AlbumItem';
 import './HomePage.css';
 
 //Implemento el manejo de cambios en el campo de búsqueda y la función de búsqueda en sí.
