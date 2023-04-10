@@ -1,3 +1,5 @@
+//el componente "Footer" permanece en la carpeta "components", ya que es un componente reutilizable, que puede ser utilizado en diferentes pantallas.
+
 import React from "react";
 
 function Footer(){

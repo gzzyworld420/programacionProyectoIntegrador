@@ -7,13 +7,13 @@ import Home from './screens/Home/Home'
 =======
 import Footer from './components/Footer/Footer';
 // aca abajo conecte los archivos. 
-import SongDetail from './components/SongDetail/SongDetail';
-import AlbumDetail from './components/AlbumDetail/AlbumDetail';
+import SongDetail from './screens/SongDetail/SongDetail';
+import AlbumDetail from './screens/AlbumDetail/AlbumDetail';
 // aca abajo enlaces para favoritos 
-import Favoritos from './components/Favoritos/Favoritos';
-import NotFound from './components/NotFound/NotFound';
+import Favoritos from './screens/Favoritos/Favoritos';
+import NotFound from './screens/NotFound/NotFound';
 // aca abajo punto 7 
-import HomePage from './components/HomePage/HomePage';
+import HomePage from './screens/HomePage/HomePage';
 
 // // Punto 9
 import Spinner from "./components/Spinner/Spinner";

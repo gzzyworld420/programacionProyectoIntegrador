@@ -1,3 +1,5 @@
+// el componentes "Navbar" deben permanecer en la carpeta "components", ya que es un componente reutilizable que puede ser utilizado en diferentes pantallas.
+
 import React from "react";
 import { Link } from "react-router-dom";
 import './styles.css'

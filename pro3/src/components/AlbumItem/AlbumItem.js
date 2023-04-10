@@ -2,7 +2,7 @@
 // title, artist y handleAddToFavorites como props y muestra la información básica 
 // del álbum junto con un botón para agregar el álbum a favoritos. 
 // Cuando el botón se hace clic, se llama a la función handleAddToFavorites que se pasa desde el componente Favoritos.
-
+// el componente "AlbumItem", permanece en la carpeta "components", ya que es un componente reutilizable que puede ser utilizado en diferentes pantallas.
 
 import React from 'react';
 import './AlbumItem.css';
