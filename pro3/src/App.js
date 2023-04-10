@@ -2,7 +2,6 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer'
-import Home from './screens/Home/Home'
 // aca abajo conecte los archivos. 
 import SongDetail from './screens/SongDetail/SongDetail';
 import AlbumDetail from './screens/AlbumDetail/AlbumDetail';
