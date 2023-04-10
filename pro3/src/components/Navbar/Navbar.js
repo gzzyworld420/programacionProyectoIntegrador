@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './styles.css'
 const menuNav = [
     {
         nombre: "Home",
@@ -14,7 +15,6 @@ const menuNav = [
         path: "./"
     }
 ]
-
 function Navbar (){
 return(
     <nav>
@@ -24,9 +24,13 @@ return(
                     <Link to = {unNav.idx}>
                         {unNav.nombre} 
                     </Link>
-                </li>
-                )
+                </li>)
             }
+        </ul>
+        <ul className="logo">
+            <li>
+                <img src= "./img/logoPag.jpeg"/> 
+            </li>
         </ul>
     </nav>
 )
