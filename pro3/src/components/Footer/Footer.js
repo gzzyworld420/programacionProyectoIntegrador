@@ -1,11 +1,16 @@
 //el componente "Footer" permanece en la carpeta "components", ya que es un componente reutilizable, que puede ser utilizado en diferentes pantallas.
-
 import React from "react";
+import './footer.css'
 
-function Footer(){
+function Footer(props){
+
     return(
         <footer>
-            <p>Bruno Ebert, Ignacio Aracena y Manuel Firpo</p>
+            <p>Manuel Firpo</p>
+            <p className="separador">|</p>
+            <p>Ignacio Aracena</p>
+            <p className="separador">|</p>
+            <p>Bruno Ebert</p>
         </footer>
     )
 }
