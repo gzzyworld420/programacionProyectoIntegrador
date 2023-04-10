@@ -18,22 +18,30 @@ class HomePage extends Component {
         };
       }
 
-handleSearchInputChange = (event) => {
-    this.setState({ searchQuery: event.target.value });
-  };
+      componentDidMount(){
+        fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums`)
+        .then(resp => resp.json())
+        .then(data => this.setState({
+          searchResults:data.data
+        }))
+      }
 
-  handleSearchSubmit = async (event) => {
-    event.preventDefault();
+// handleSearchInputChange = (event) => {
+//     this.setState({ searchQuery: event.target.value });
+//   };
 
-    const { searchQuery } = this.state;
-    if (!searchQuery) return;
+//   handleSearchSubmit = async (event) => {
+//     event.preventDefault();
 
-    const response = await fetch(
-      `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/search/album?q=${searchQuery}`
-    );
-    const data = await response.json();
-    this.setState({ searchResults: data.data });
-  };
+//     const { searchQuery } = this.state;
+//     if (!searchQuery) return;
+
+//     const response = await fetch(
+//       `https://cors-anywhere.herokuapp.com/https://api.deezer.com/search/album?q=${searchQuery}`
+//     );
+//     const data = await response.json();
+//     this.setState({ searchResults: data.data });
+//   }; 
 
 // En el componente HomePage, agrego un campo de búsqueda (input)
 //  y un contenedor para los resultados de búsqueda.
@@ -53,13 +61,17 @@ render() {
           <button type="submit">Buscar</button>
         </form>
         <div className="search-results-container">
-          {searchResults.map((album) => (
+          {
+          this.state.searchResults.length < 0 ? 
+          <h1>Cargando..</h1> :
+          searchResults.map((album) => (
             <AlbumItem
               key={album.id}
               album={album}
               onAlbumClick={() => this.props.history.push(`/albums/${album.id}`)}
             />
-          ))}
+          ))
+          }
         </div>
       </div>
     );

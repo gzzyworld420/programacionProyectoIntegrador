@@ -24,7 +24,7 @@ function App() {
     <>
       <Navbar/>
           <Switch>
-              <Route path='./' exact={true} component={Home}/>
+              <Route path='./' exact={true} component={HomePage}/>
               <Route path="/favoritos" component={Favoritos} />
               <Route path="/song/:id" component={SongDetail} />
               <Route path="/album/:id" component={AlbumDetail} />
