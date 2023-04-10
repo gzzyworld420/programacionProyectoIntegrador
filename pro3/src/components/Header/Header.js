@@ -1,11 +1,10 @@
 import React from 'react';
 import './header.css';
 
-import {Link, Route, Switch} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-function Header(props){
-
-    return(
+const Header = () => {
+    return (
         <nav className='navbar'>
             <div className='logo-home'>
                 <img className='logo' src='../../img/logo.png'></img>
