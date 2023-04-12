@@ -1,0 +1,8 @@
+.notFound{
+    height: calc(100vh - 180px);
+    display: flex;   
+}
+
+.notFoundimg{
+    width: 100%;
+}
