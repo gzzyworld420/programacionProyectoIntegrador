@@ -1,5 +1,5 @@
 .navbar{
-    background-color: hsla(228, 9%, 10%, 1);
+    background-color: black;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -34,7 +34,7 @@ a{
 }
 
 a:hover{
-    border-bottom: solid 2px rgb(255, 255, 255);
+    border-bottom: solid 2px lightblue;
     color: rgb(255, 255, 255);
 }
 

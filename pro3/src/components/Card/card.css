@@ -23,13 +23,29 @@ box-shadow: 0rem 0rem 10px 8px rgb(110 156 159 / 25%);
     background-color: rgb(230,230,230);
 }
 
-.more{
-    color: blue;
-}
-.more:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
+.more {
+    background-color: #4CAF50; /* Color de fondo */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto */
+    padding: 15px 32px; /* Espacio de relleno */
+    text-align: center; /* Alinear el texto en el centro */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar como bloque */
+    font-size: 16px; /* Tamaño de la fuente */
+    margin: 4px 2px; /* Margen */
+    cursor: pointer; /* Cambiar el cursor */
+    border-radius: 50px; /* Radio del borde */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Sombra */
+    transition: all 0.3s ease-in-out; /* Transición suave */
+  }
+  
+  .more:hover {
+    background-color: #3e8e41; /* Color de fondo al pasar el mouse */
+  }
+
+
+
+
 .hide{
     display: none;
 }
