@@ -4,6 +4,11 @@ import {Route, Switch} from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './screens/Home/Home';
 import Footer from './components/Footer/Footer';
+// punto 5 y 6 
+import Detalle from './screens/Detail/Detail';
+import Favoritos from './screens/Favoritos/Favoritos';
+import NotFound from './screens/NotFound/NotFound';
+
 
 function App() {
   return (
@@ -14,8 +19,9 @@ function App() {
       <Switch>
         <Route path='/' exact component={ Home }/>
         {/* ACA VAN LAS RUTAS DE LOS OTROS PUNTOS */}
-
-
+        <Route path='/favoritos' component={ Favoritos }/>
+        <Route path='/detallePelicula/id/:id' component={ Detalle }/>
+        <Route path='' component={ NotFound }/>
 
 
       </Switch>
