@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Card from '../../components/Card/Card';
-import './viewAll.css'
+import './ViewAllPopulares.css'
 
-class ViewAll extends Component {
+class ViewAllPopulares extends Component {
     constructor(props) {
         super(props);
         this.state = {
             props: props,
             page: 1,
-            estrenoMovies: [],
+            popularMovies: [],
             mensaje: '',
             valor: '',
             loader: true,
@@ -30,7 +30,7 @@ class ViewAll extends Component {
 
         let peliculasFiltradas = this.state.moviesInicial.filter(pelicula => pelicula.title.toLowerCase().includes(event.target.value.toLowerCase()));
         this.setState({
-            estrenoMovies: peliculasFiltradas,
+            popularMovies: peliculasFiltradas,
         })
 
         if(event.target.value === ''){
@@ -41,10 +41,10 @@ class ViewAll extends Component {
     }
 
     verMas() {
-        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1845c94396255a256363182ed898e8fc&language=en-US=${this.state.page}`)
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=1845c94396255a256363182ed898e8fc&language=en-US=${this.state.page}`)
             .then(response => response.json())
             .then(data => this.setState({
-                estrenoMovies: this.state.estrenoMovies.concat(data.results),
+                popularMovies: this.state.popularMovies.concat(data.results),
                 moviesInicial: this.state.moviesInicial.concat(data.results)
             }))
             .catch(error => console.log(error));
@@ -54,10 +54,10 @@ class ViewAll extends Component {
     }
 
     componentDidMount() {
-        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1845c94396255a256363182ed898e8fc&language=en-US=${this.state.page}`)
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=1845c94396255a256363182ed898e8fc&language=en-US=${this.state.page}`)
             .then(response => response.json())
             .then(data => this.setState({
-                estrenoMovies: data.results,
+                popularMovies: data.results,
                 moviesInicial: data.results,
                 page: this.state.page + 1,
                 loader: false
@@ -81,10 +81,10 @@ class ViewAll extends Component {
                 {this.state.loader === true ?
                     <img src='../../images/loader.gif' alt="Loader"/> :
                     <React.Fragment>
-                        <h2 className='title-home'>Upcoming Movies</h2>
+                        <h2 className='title-home'>Popular movies</h2>
 
                         <section className='cardContainer'>
-                            {this.state.estrenoMovies.map((oneMovie, idx) => <Card key={oneMovie + idx} datosPelicula={oneMovie} />)}
+                            {this.state.popularMovies.map((oneMovie, idx) => <Card key={oneMovie + idx} datosPelicula={oneMovie} />)}
                         </section>
                         {this.state.cargarMas === true?
                         <div className='div-vermas'>
@@ -97,4 +97,4 @@ class ViewAll extends Component {
     }
 }
 
-export default ViewAll;
+export default ViewAllPopulares;

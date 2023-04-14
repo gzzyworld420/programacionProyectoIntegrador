@@ -119,7 +119,7 @@ class Home extends Component {
                         
                         {/* Seccion de peliculas en Estreno */}
                         <div className='title-seeall'>
-                            <h2 className="title-home">Movies in premiere</h2>
+                            <h2 className="title-home">Upcoming Movies</h2>
                             <Link to='/estrenos'>
                                 <i className='fa-solid fa-plus'></i> View all
                             </Link>

@@ -8,6 +8,8 @@ import Footer from './components/Footer/Footer';
 import Detalle from './screens/Detail/Detail';
 import Favoritos from './screens/Favoritos/Favoritos';
 import NotFound from './screens/NotFound/NotFound';
+import ViewAll from './screens/ViewAll/ViewAll';
+import ViewAllPopulares from './screens/ViewAllPopulares/ViewAllPopulares';
 
 
 function App() {
@@ -20,9 +22,11 @@ function App() {
         <Route path='/' exact component={ Home }/>
         {/* ACA VAN LAS RUTAS DE LOS OTROS PUNTOS */}
         <Route path='/favoritos' component={ Favoritos }/>
+        <Route path='/populares' component={ ViewAllPopulares }/>
+        <Route path='/estrenos' component={ ViewAll }/>
         <Route path='/detallePelicula/id/:id' component={ Detalle }/>
         <Route path='' component={ NotFound }/>
-
+        
 
       </Switch>
     <Footer/>
